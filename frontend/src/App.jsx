@@ -1,5 +1,5 @@
 const App = () => {
-  return <h1>Welcome to zoo</h1>;
+  return <p>Welcome to zoo</p>;
 };
 
 export default App;
