@@ -4,7 +4,7 @@ import { Navbar, Nav, Container,Badge,NavDropdown } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import {useSelector,useDispatch} from 'react-redux';
 // @ts-ignore
-import logo from "../logo.png"; // This defines the "logo" variable
+import logo from "../assets/logo.png"; // This defines the "logo" variable
 import { LinkContainer } from "react-router-bootstrap";
 import {useLogoutMutation} from "../slices/usersApiSlice";
 import { logout }  from "../slices/authSlice";
