@@ -11,8 +11,9 @@ import { clearCartItems } from "../slices/cartSlice";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector(/** @param {any} state */(state) => state.cart);
 
+  /** @type {any} */
   const [createOrder, { isLoading, error }] = useCreateOrderMutation();
   const dispatch = useDispatch();
 

@@ -18,7 +18,7 @@
    const [email, setEmail] = useState('');
    const [isAdmin, setIsAdmin] = useState(false);
     
- 
+    /** @type {any} */
    const { data:user, isLoading, error,refetch } = useGetUserdetailsQuery(userId);
  
    const [updateUser, { isLoading: loadingUpdate }] = useUpdateUserMutation();

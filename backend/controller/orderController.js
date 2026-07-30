@@ -124,7 +124,9 @@ const updateOrderToDeliverd = asyncHandler(async (req, res) => {
   } else {
     res.status(404);
     throw new Error("Order not found");
+
   }
+  
 });
 
 // @desc   GET all Orders

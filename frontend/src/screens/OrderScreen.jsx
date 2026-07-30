@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 
 const OrderScreen = () => {
         const {id: orderId} =useParams();
+        /** @type {any} */
         const {
             data:order,
             refetch,
@@ -30,8 +31,9 @@ const [payOrder ,{isLoading :loadingPay}]=usePayOrderMutation();
 const [deliverOrder,{isLoading :loadingDeliver}]=useDeliverOrderMutation();
 const[{isPending},paypalDispatch]=usePayPalScriptReducer();
 
-const {userInfo} = useSelector((state)=>state.auth);
+const {userInfo} = useSelector(/** @param {any} state */(state)=>state.auth);
 
+/** @type {any} */
 const { data: paypal, isLoading: loadingPayPal, error: errorPayPal } = useGetPayPalClientIdQuery();
 
 

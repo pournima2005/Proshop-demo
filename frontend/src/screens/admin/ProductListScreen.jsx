@@ -141,7 +141,9 @@ import { useParams } from 'react-router-dom';
 
 const ProductListScreen = () => {
   
+  
   const { pageNumber } = useParams();
+   /** @type {any} */
   const { data , isLoading, error, refetch } = useGetProductsQuery({pageNumber});
 
   const [createProduct, { isLoading: loadingCreate }] = useCreateProductMutation();

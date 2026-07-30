@@ -14,6 +14,7 @@ import ProductCarousel from '../components/ProductCarousel';
 const HomeScreen = () => {
 
 const {keyword,pageNumber}=useParams();
+ /** @type {any} */
 const {data , isLoading,error}=useGetProductsQuery({keyword,pageNumber});
      
  
@@ -22,8 +23,14 @@ const {data , isLoading,error}=useGetProductsQuery({keyword,pageNumber});
        {!keyword ? (<ProductCarousel />) : (<Link to='/' className='btn btn-light mb-4'>Go Back</Link>)}
        {isLoading ? (
         <Loader />
-       ): error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>):(<>
-         
+        ): error ? (
+                    <Message variant='danger'>
+                      {typeof error.data?.message === 'string' 
+                        ? error.data.message 
+                        : error.error || 'An error occurred'}
+                    </Message>
+                  ):(<>
+                          
         <h1>Latest Products</h1>
         <Row>
           {data.products.map((product) => (

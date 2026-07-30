@@ -6,6 +6,7 @@ import { Table, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import {toast} from 'react-toastify';
 const UserListScreen = () => {
+   /** @type {any} */
   const { data: users, isLoading, error ,refetch} = useGetUsersQuery();
 
   const [deleteUser,{isLoading:loadingDelete}]=useDeleteUserMutation();

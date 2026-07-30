@@ -13,8 +13,9 @@ import {PayPalScriptProvider} from '@paypal/react-paypal-js';
 import {HelmetProvider} from 'react-helmet-async';
 import {Provider} from 'react-redux';
 import store from "./store";
-//import "bootstrap/dist/css/bootstrap.min.css";
+// @ts-ignore
 import "./assets/styles/bootstrap.custom.css";
+// @ts-ignore
 import "./assets/styles/index.css"
 import App from "./App.jsx";
 import HomeScreen from "./screens/HomeScreen";

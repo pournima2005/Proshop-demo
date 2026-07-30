@@ -21,7 +21,8 @@ const ProductEditScreen = () => {
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState('');
-
+   
+  /** @type {any} */
   const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
 
   const [updateProduct, { isLoading: loadingUpdate }] = useUpdateProductMutation();
@@ -118,27 +119,25 @@ const ProductEditScreen = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              <Form.Control
-                type='file'
-                label='Choose file'
-                onChange={uploadFileHandler}
-                className='mt-2'
-              ></Form.Control>
+               <Form.Group controlId="image">
+                    <Form.Label>Image</Form.Label>
+                    <Form.Control type="file" onChange={uploadFileHandler} />
+                </Form.Group>
               
               {/* IMAGE PREVIEW: Ensures the browser finds the image on the backend port */}
               {image && (
                 <div className='mt-2'>
-                  <img 
-                    src={image} 
-                    alt='preview' 
-                    style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px', border: '1px solid #ddd' }} 
-                    onError={(e) => {
-                      // Fallback if proxy isn't working: try direct backend port
-                      if (!e.target.src.includes(':5000')) {
-                        e.target.src = `http://localhost:5000${image}`;
-                      }
-                    }}
-                  />
+                   <img 
+                          src={image} 
+                          alt='preview' 
+                          style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px', border: '1px solid #ddd' }} 
+                          onError={(e) => {
+                            // Fallback if proxy isn't working: try direct backend port
+                            if (!e.currentTarget.src.includes(':5000')) {
+                              e.currentTarget.src = `http://localhost:5000${image}`;
+                            }
+                          }}
+                      />
                 </div>
               )}
               {loadingUpload && <Loader />}

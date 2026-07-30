@@ -18,7 +18,7 @@ const LoginScreen = () => {
         const navigate = useNavigate();
 
         const [login,{isLoading}] = useLoginMutation();
-        const {userInfo} = useSelector((state) => state.auth);
+        const {userInfo} = useSelector(/** @param {any} state */(state) => state.auth);
 
         const {search} = useLocation();
         const sp = new URLSearchParams(search);

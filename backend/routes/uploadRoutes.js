@@ -1,4 +1,4 @@
- import path from 'path';
+import path from 'path';
 import express from 'express';
 import multer from 'multer';
 
@@ -16,35 +16,35 @@ const storage = multer.diskStorage({
   },
 });
 
-function checkFileType(file, cb) {
+function fileFilter(req, file, cb) {
   const filetypes = /jpg|jpeg|png/;
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   const mimetype = filetypes.test(file.mimetype);
-
   if (extname && mimetype) {
     return cb(null, true);
   } else {
-    cb(new Error('Images Only!'), false);
+    cb('Images only!');
   }
 }
 
+
 const upload = multer({
   storage,
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
+  fileFilter,
 });
 
-router.post('/', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send({ message: 'No file uploaded' });
-  }
+const uploadSingleImage = upload.single('image');
 
-  // FIX: Only send back the '/uploads/' + filename. 
-  // Do not use req.file.path because it contains the folder name already.
-  res.send({
-    message: 'Image Uploaded',
-    image: `/uploads/${req.file.filename}`, 
+router.post('/', (req, res) => {
+  uploadSingleImage(req, res, function (err) {
+    if (err) {
+      res.status(400).send({ message: err.message });
+    }
+
+    res.status(200).send({
+      message: 'Image uploaded successfully',
+      image: `/${req.file.path}`,
+    });
   });
 });
 

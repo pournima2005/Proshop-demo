@@ -23,7 +23,7 @@ const RegisterScreen = () => {
         const navigate = useNavigate();
 
         const [register,{isLoading}] = useRegisterMutation();
-        const {userInfo} = useSelector((state) => state.auth);
+        const {userInfo} = useSelector(/** @param {any} state */(state) => state.auth);
 
         const {search} = useLocation();
         const sp = new URLSearchParams(search);

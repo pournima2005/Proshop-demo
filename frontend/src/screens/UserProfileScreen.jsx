@@ -20,10 +20,10 @@ const UserProfileScreen = () => {
 
     const dispatch=useDispatch();
 
-    const {userInfo}=useSelector((state)=>state.auth);
+    const {userInfo}=useSelector(/** @param {any} state */(state)=>state.auth);
 
     const[updateProfile,{isLoading:loadingUpdateProfile}]=useProfileMutation();
-    
+    /** @type {any} */
     const {data:orders,isLoading,error}=useGetMyOrdersQuery();
     useEffect(()=>{
             if(userInfo){

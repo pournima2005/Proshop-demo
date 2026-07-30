@@ -48,12 +48,7 @@ const orderSchema=new mongoose.Schema({
         default:0.0,
 
     },
-    itemsPrice:{
-        type:Number,
-        required:true,
-        default:0.0,
-
-    },
+     
     shippingPrice:{
         type:Number,
         required:true,
@@ -76,7 +71,7 @@ const orderSchema=new mongoose.Schema({
     },
     isDelivered:{
             type:Boolean,
-            requied:true,
+            required:true,
     },
     deliveredAt:{
         type:Date,

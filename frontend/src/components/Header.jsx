@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Navbar, Nav, Container,Badge,NavDropdown } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import {useSelector,useDispatch} from 'react-redux';
-import logo from "../assets/logo.png"; // This defines the "logo" variable
+// @ts-ignore
+import logo from "../logo.png"; // This defines the "logo" variable
 import { LinkContainer } from "react-router-bootstrap";
 import {useLogoutMutation} from "../slices/usersApiSlice";
 import { logout }  from "../slices/authSlice";
@@ -11,8 +12,8 @@ import SearchBox from "./SearchBox";
 
 const Header = () => {
 
-  const {cartItems}=useSelector((state)=>state.cart);
-  const {userInfo}=useSelector((state)=>state.auth);
+  const {cartItems}=useSelector( /** @param {any} state */ (state)=>state.cart);
+  const {userInfo}=useSelector( /** @param {any} state */(state)=>state.auth);
 
   const dispatch= useDispatch();
   const navigate=useNavigate();

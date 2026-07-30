@@ -1,4 +1,4 @@
- import { apiSlice } from './apiSlice';
+import { apiSlice } from './apiSlice';
 import { ORDERS_URL, PAYPAL_URL } from '../constants';
 
 export const orderApiSlice = apiSlice.injectEndpoints({
@@ -47,15 +47,15 @@ export const orderApiSlice = apiSlice.injectEndpoints({
         url: ORDERS_URL,
       }),
       keepUnusedDataFor: 5,
-      providesTags: ['Orders'], // Labels the whole list of orders
+      providesTags: ['Order'], // Labels the whole list of orders
     }),
 
     deliverOrder: builder.mutation({
-      query: (orderId) => ({ // Removed curly braces from orderId to match your screen call
+      query: (orderId) => ({  
         url: `${ORDERS_URL}/${orderId}/deliver`,
         method: 'PUT',
       }),
-      invalidatesTags: ['Order', 'Orders'], // Clears BOTH the list and the details cache
+      invalidatesTags: ['Order', 'Order'],  
     }),
   }),
 });

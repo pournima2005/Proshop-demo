@@ -151,4 +151,4 @@ export const {
   useDeleteProductMutation,
   useCreateReviewMutation,
   useGetTopProductsQuery,
-} = productApiSlice;
+} = productApiSlice; 

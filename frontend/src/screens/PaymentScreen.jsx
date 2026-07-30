@@ -14,7 +14,7 @@ const PaymentScreen = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const cart = useSelector((state) => state.cart);
+    const cart = useSelector(/** @param {any} state */(state) => state.cart);
     const {shippingAddress} = cart;
 
     useEffect(() => {

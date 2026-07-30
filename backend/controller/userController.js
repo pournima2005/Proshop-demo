@@ -192,7 +192,7 @@ const deleteUser= asyncHandler(async (req,res)=>{
 
 // @desc  Update user  
 // @route PUT/api/users/:id
-// @access Private?Admin
+// @access Private/Admin
 
 const UpdateUser= asyncHandler(async (req,res)=>{
          //res.send('Update user'); 

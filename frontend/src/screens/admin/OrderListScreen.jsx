@@ -6,6 +6,7 @@ import { Table, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const OrderListScreen = () => {
+  /** @type {any} */
   const { data: orders, isLoading, error } = useGetOrdersQuery();
 
   return (
